@@ -1,8 +1,12 @@
 import pymongo
-from  scrapy.conf import settings
+from scrapy.utils.project import get_project_settings
 
-class mongotest():
-    def main(self):
+
+class Mongo(object):
+
+    def test(self):
+        settings = get_project_settings()
+
         # 连接数据库
         self.client = pymongo.MongoClient(host=settings['MONGO_HOST'], port=settings['MONGO_PORT'])
 
@@ -12,6 +16,7 @@ class mongotest():
         def process_item(self, item, spider):
             pass
 
+
 if __name__ == '__main__':
-    tt = mongotest()
-    tt.main()
+    tt = Mongo()
+    tt.test()
