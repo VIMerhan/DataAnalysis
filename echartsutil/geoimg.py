@@ -1,4 +1,5 @@
 from pyecharts import Geo
+
 class GeoImg(object):
     data = [
         ("海门", 9), ("鄂尔多斯", 12), ("招远", 12), ("舟山", 12), ("齐齐哈尔", 14), ("盐城", 15),

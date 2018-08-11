@@ -1,15 +1,13 @@
-import pyecharts
 import requests
-import simplejson as json
 import matplotlib.pyplot as plt
 
 # import json
 from pyecharts.engine import create_default_environment
 
-from WordImg import WordImg
+from echartsutil.wordimg import WordImg
 
 
-class data(object):
+class Data(object):
     # class persona(object):
     realName = None,
     sex = None,
@@ -71,13 +69,13 @@ def convert(dict_data):
     # data.birthDate = birthDate
     # data.realName = realName
     # data.sex = sex
-    data.country = '中国'
-    data.jobPosition = '经理'
-    data.education = '硕士'
-    data.isAbroad = '留学'
-    data.birthDate = '19960322'
-    data.realName = 'Bruno Mars'
-    data.sex = '男'
+    Data.country = '中国'
+    Data.jobPosition = '经理'
+    Data.education = '硕士'
+    Data.isAbroad = '留学'
+    Data.birthDate = '19960322'
+    Data.realName = 'Bruno Mars'
+    Data.sex = '男'
 
 if __name__ == '__main__':
     url = 'http://10.0.0.15:8084/talent/v1/data/persona?id=1'
@@ -97,18 +95,18 @@ if __name__ == '__main__':
 
     # convert(dict_data)
     convert(None)
-    print(data.country)
-    print(data.jobPosition)
-    print(data.education)
-    print(data.isAbroad)
-    print(data.birthDate)
-    print(data.realName)
-    print(data.sex)
+    print(Data.country)
+    print(Data.jobPosition)
+    print(Data.education)
+    print(Data.isAbroad)
+    print(Data.birthDate)
+    print(Data.realName)
+    print(Data.sex)
     # 背景图
     maskImg = plt.imread('./image/brunomars.jpeg')
     # plt.imshow(maskImg)
     # plt.show()
-    list_data = [data.country, data.jobPosition, data.education, data.isAbroad, data.birthDate, data.realName, data.sex]
+    list_data = [Data.country, Data.jobPosition, Data.education, Data.isAbroad, Data.birthDate, Data.realName, Data.sex]
     value = [1, 1, 1, 1, 1, 1, 1]
 
     wc = WordImg.get_word(name=list_data, value=value)
